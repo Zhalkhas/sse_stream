@@ -15,8 +15,8 @@ class SseEventParser extends StreamTransformerBase<List<String>, SseEvent> {
           eventData[line] = '';
           continue;
         }
-        final name = line.substring(0, colonIndex).toLowerCase();
-        final data = line.substring(colonIndex);
+        final name = line.substring(0, colonIndex).trim().toLowerCase();
+        final data = line.substring(colonIndex + 1).trim();
         eventData[name] = data;
       }
       yield SseEvent(
