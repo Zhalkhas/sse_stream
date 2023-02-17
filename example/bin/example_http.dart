@@ -22,6 +22,7 @@ Future<void> main() async {
       .transform(Utf8Decoder())
       .transform(const SseEventTransformer())
       .listen((event) {
+        // do something here
     print('new event: $event');
   });
 }
